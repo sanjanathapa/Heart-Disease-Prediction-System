@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+
+            <meta charset="utf-8">
+
+
+			<!--CSS-->
+			
+
+			
+
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" media="all">
+            <!-- Bootstrap bootstrap-touch-slider Slider Main Style Sheet -->
+
+            <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+            <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+            <link href="{% static 'css/login.css' %}" rel="stylesheet" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+            <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+            <!-- Site CSS -->
+			<link rel="stylesheet" href="{% static 'css/my_style.css' %}">
+			<link rel="stylesheet" href="{% static 'css/boxicons/css/boxicons.min.css' %}">
+
+
+            <!-- Responsive CSS -->
+            <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+            <link rel="stylesheet" href="{% static 'css/landing_page.css' %}">
+
+            <!-- java script-->
+
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+            <!-- ALL PLUGINS -->
+	        <script src="{% static 'js/form-validator.min.js' %}"></script>
+            <script src="{% static 'js/contact-form-script.js' % }"></script>
+            <script src="{% static 'js/smoothscroll.js' %}"></script>
+            <script src="{% static 'js/TweenMax.min.js' %}"></script>
+            <script src="{% static 'js/main.js' %}"></script>
+			<script src="{% static 'js/custom.js'%}"></script>
+			<script src="{% static 'js/owl-carousel.min.js'%}"></script>
+
+			
+
+	
+
+    <title>Heart disease prediction</title>
+</head>
+<body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
+
+
+	<!-- Start top bar -->
+	<div class="main-top">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="left-top">
+						<a class="new-btn-d br-2" href="#"><span>Check Heart Disease</span></a>
+						<div class="mail-b"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i> Zunaidk17@gmail.com</a></div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="wel-nots">
+						<p>Welcome to Our Health Lab!</p>
+					</div>
+					<div class="right-top">
+						<ul>
+							<li><a href="https://www.facebook.com/Smart-Heart-Disease-System-104554694850034"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End top bar -->
+
+
+
+
+
+
+
+    <!-- Start header -->
+	<header class="top-header">
+		<nav class="navbar header-nav navbar-expand-lg">
+            <div class="container">
+				<a class="navbar-brand" href="#"><img src="{% static 'images/logo.png' %}" alt="image"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
+                    <ul class="navbar-nav">
+						<li><a class="nav-link " href="#home">Home</a></li>
+						<li><a class="nav-link" href="#login">Login</a></li>
+                        <li><a class="nav-link" href="#service">Services</a></li>
+                        <li><a class="nav-link" href="#about">About Us</a></li>
+                        <li><a class="nav-link" href="#contact">Contact Us</a></li>
+                        <li><a class="nav-link" href="{% url 'accounts:register' %}">Sign Up</a></li>
+						<li><a class="nav-link" href="/admin">Admin login</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+	</header>	
+
+	
+		 {%if user.is_authenticated %}
+		 <div style = "width: 100%;height: auto; margin-top: 150px; text-align: center;">
+		 <h2>You are already logged in !!</h2>
+        <button class="btn btn-neutral"><a href="{% url 'accounts:logout'%}">Logout</a></button>
+
+		 </div>
+                {%else%}
+
+
+<section id="hero" class="d-flex align-items-center">
+    <div id = "home" class="container">
+      <div class="row" data-aos="zoom-in">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+          <h1>Your Health Care is our Responsibilty</h1>
+          <h2>We are team of talanted designers making websites with Bootstrap</h2>
+          <div class="d-lg-flex">
+            <a href="#login" class="btn-get-started scrollto">Predict Heart Disease</a>
+
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+		<img src="{% static 'images/landing.png' %}" class="img-fluid animated" alt="">      
+	  </div>
+      </div>
+    </div>
+
+  </section>
+  <br>
+
+  <div id="login"></div>
+  <section id="hero"  class="d-flex align-items-center">
+    <div class="container" data-aos="fade-up">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column align-items-stretch justify-content-center pt-4 pt-lg-0 order-2 order-lg-1 img"   data-aos="zoom-in" data-aos-delay="150" >
+			<img   src="{% static 'images/register.png' %}" class="img-fluid animated" alt="">      
+		</div>
+		
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+			<main  class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+				<div class="cotainer">
+				  <div class="card login-card">
+						<div class="card-body">
+						  <p class="login-card-description">Sign into your account</p>	
+						  <form id = "form0" role="form" action=" {% url 'user_login' %}" method="post">
+							  {% csrf_token %}
+							  <div class="form-group">
+								<label for="email" class="sr-only">Email</label>
+								<input type="text" name="username" id="username" class="form-control" placeholder="username">
+							  </div>
+							  <div class="form-group mb-4">
+								<label for="password" class="sr-only">Password</label>
+								<input type="password" name="password" id="password" class="form-control" placeholder="***********">
+							  </div>
+							  <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit" value="Login">
+							</form>
+			
+							<nav class="login-card-footer-nav">
+							  <a href="#!">Terms of use.</a>
+							  <a href="#!">Privacy policy</a>
+							</nav>
+						</div>
+				  </div>
+				</div>
+			  </main>
+			  <br><br><br>
+			 
+	   </div>
+      </div>
+    </div>
+
+  </section>
+
+
+
+	 <!-- ======= Services Section ======= -->
+	 <div   id="service"></div> <br>
+	 <section class="services section-bg">
+		<div class="container" data-aos="fade-up">
+  
+		  <div class="section-title">
+			<h2>Services</h2>
+			<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+		  </div>
+  
+		  <div class="row">
+			<div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+			  <div class="serviceBox">
+				<div class="service-icon"><i class="fa fa-h-square" aria-hidden="true"></i></div>
+				<h3 class="title">Check disease through symptoms</h3>
+				<p class="description">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequuntur.
+				</p>
+				<a href="#" class="new-btn-d br-2">Read More</a>
+			  </div>
+			</div>
+
+
+  
+			<div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+				<div class="serviceBox">
+				  <div class="service-icon"><i class="fa fa-heart" aria-hidden="true"></i></div>
+				  <h3 class="title">Heart Disease Prediction</h3>
+				  <p class="description">
+					  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequuntur.
+				  </p>
+				  <a href="#" class="new-btn-d br-2">Read More</a>
+  
+				</div>
+			  </div>
+  
+
+  
+			  <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+				<div class="serviceBox">
+				  <div class="service-icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></div>
+				  <h3 class="title">Book Appointment</h3>
+				  <p class="description">
+					  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequuntur.
+				  </p>
+				  <a href="#" class="new-btn-d br-2">Read More</a>
+  
+				</div>
+			  </div>
+  
+  
+			  <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+				<div class="serviceBox">
+				  <div class="service-icon"><i class="fa fa-wheelchair" aria-hidden="true"></i></div>
+				  <h3 class="title">Disease Diagnosis</h3>
+				  <p class="description">
+					  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequuntur.
+				  </p>
+				  <a href="#" class="new-btn-d br-2">Read More</a>
+  
+				</div>
+			  </div>
+  
+  
+		  </div>
+  
+		</div>
+	  </section><!-- End Services Section -->
+
+
+
+	  
+
+	  <br>
+	<!--- ========Appointment section  =============== -->
+	<div id="appointment"    class="appointment-main">
+		<div class="container" >
+			<div class="row"  >
+				<div class="col-lg-12" >
+					<div class="section-title">
+						<h2>Appointment</h2>
+						<p style="font-weight: bolder; font-size: 20px; color: #12557f">Book Your Appointment. </p>
+					</div>
+				</div>
+			</div>
+			<div class="row" >
+				<div class="col-lg-6 col-md-6">
+					<div class="well-block">
+                        <div class="well-title">
+                            <h2 style="color: #12557f">Book an Appointment</h2>
+                        </div>
+                        <form>
+                            <!-- Form start -->
+                            <div class="row " >
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label" for="name">Name</label>
+                                        <input id="name"  name="name" type="text" placeholder="Name" class="form-control input-md">
+                                    </div>
+                                </div>
+                                <!-- Text input-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label" for="email">Email</label>
+                                        <input id="email" name="email" type="text" placeholder="E-Mail" class="form-control input-md">
+                                    </div>
+                                </div>
+                                <!-- Text input-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label" for="date">Preferred Date</label>
+                                        <input id="date" name="date" type="text" placeholder="Preferred Date" class="form-control input-md">
+                                    </div>
+                                </div>
+                                <!-- Select Basic -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label" for="time">Preferred Time</label>
+                                        <select id="time" name="time" class="form-control">
+                                            <option value="8:00 to 9:00">8:00 to 9:00</option>
+                                            <option value="9:00 to 10:00">9:00 to 10:00</option>
+                                            <option value="10:00 to 1:00">10:00 to 1:00</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Select Basic -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label" for="appointmentfor">Department</label>
+                                        <select id="appointmentfor" name="appointmentfor" class="form-control">
+                                            <option value="Choose Department">Choose Department</option>
+											<option value="Gynacology">Heart</option>
+											<option value="Dermatologist"></option>
+											<option value="Ayurvedic">Ayurvedic</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Button -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+
+                                        <button onclick="alert('Make an appointment is under construction ');" id="singlebutton" name="singlebutton" class="new-btn-d br-2">Make An Appointment</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- form end -->
+                    </div>
+				</div>
+				<div class="col-lg-6 col-md-6">
+					<div class="well-block">
+                        <div class="well-title">
+                            <h2  style="color:  #12557f;">Why Appointment with Us</h2>
+                        </div>
+                        <div class="feature-block">
+                            <div class="feature feature-blurb-text">
+                                <h4 style="color:#00cb86" class="feature-title">24/7 Hours Available</h4>
+                                <div class="feature-content">
+                                    <p>Integer nec nisi sed mi hendrerit mattis. Vestibulum mi nunc, ultricies quis vehicula et, iaculis in magnestibulum.</p>
+                                </div>
+                            </div>
+                            <div class="feature feature-blurb-text">
+                                <h4  style="color:#00cb86" class="feature-title">Experienced Staff Available</h4>
+                                <div class="feature-content">
+                                    <p>Aliquam sit amet mi eu libero fermentum bibendum pulvinar a turpis. Vestibulum quis feugiat risus. </p>
+                                </div>
+                            </div>
+                            <div class="feature feature-blurb-text">
+                                <h4  style="color:#00cb86" class="feature-title">Low Price & Fees</h4>
+                                <div class="feature-content">
+                                    <p>Praesent eu sollicitudin nunc. Cras malesuada vel nisi consequat pretium. Integer auctor elementum nulla suscipit in.</p>
+                                </div>
+                            </div>
+						</div>
+						
+                    </div>
+				</div>
+			
+			</div>
+		</div>
+	</div>
+	<!-- End Appointment -->
+
+
+
+
+
+	<!-- Start About us -->
+	<div id="about"></div><br>
+	<div  class="about-box">
+		<div class="about-a1">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="section-title">
+							<h2>About Us</h2>
+							<p>Loads of features. Making it easier for anyone to predict the chance of getting heart disease. Shows analysis done on large data sets.</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<div class="row align-items-center about-main-info">
+							<div class="col-lg-6 col-md-6 col-sm-12">
+								<h2> Welcome to Health Lab </h2>
+                                <p>"Doctors can be replaced by software – 80% of them can. I’d much rather have a good machine learning system diagnose my disease than the median or average doctor."</p>
+								<h3 style="color:#00cb86">Vast and Reliable Dataset</h3>
+                            <p> This database contains 76 attributes, but all published experiments refer to using a subset of 14 of them. In particular, the Cleveland database is the only one that has been used by ML researchers to this date.
+						    <h3 style="color:#00cb86">Analysis Using Python and Jupyter Notebook</h3>
+                            <!--<p>The code used for analysis of data and getting prediction rates is pretty simple. The code is written in Python and Jupyter Notebook.-->
+
+								<a href="{% url 'about' %}" class="new-btn-d br-2">Read More</a>
+							</div>
+
+
+							<div class="col-lg-6 col-md-6 col-sm-12">
+								<div class="about-m">
+									<ul id="banner">
+										<li>
+											<img src="{% static 'images/about-img-01.jpg' %}" alt="">
+										</li>
+										<li>
+											<img src="{% static 'images/about-img-02.jpg' %}" alt="">
+										</li>
+										<li>
+											<img src="{% static 'images/about-img-03.jpg' %}" alt="">
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End About us -->
+
+
+	<!-- Start Team -->
+	<div id="team" class="team-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-title">
+						<h2>Our Team</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="row justify-content-center">
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="{% static 'images/zunaid.jpg' %}" alt="">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Mohd Zunaid</h3>
+                            <span class="post">Big Data Engineerr</span>
+                            <ul class="social">
+                                <li><a href="https://www.facebook.com/zunaid2718/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="https://twitter.com/Zunaidk17"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="{% static 'images/sanjana.jpg' %}" alt="Thumbnail Image" alt="">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Sanjana</h3>
+                            <span class="post">Machine Learning</span>
+                            <ul class="social">
+                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+		</div>
+	</div>
+
+	<!-- End Team -->
+
+
+	
+
+
+
+	<!-- Start Contact -->
+	<div  class="contact-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-xs-12">
+					<div class="left-contact">
+						<div class="section-title">
+							<h2>Address</h2>
+						</div>
+						<div class="media cont-line">
+							<div class="media-left icon-b">
+								<i class="fa fa-location-arrow" aria-hidden="true"></i>
+							</div>
+							<div class="media-body dit-right">
+								<h4>Address</h4>
+								<p>Gna University phagwara punjab, 144401</p>
+							</div>
+						</div>
+						<div class="media cont-line">
+							<div class="media-left icon-b">
+								<i class="fa fa-envelope" aria-hidden="true"></i>
+							</div>
+							<div class="media-body dit-right">
+								<h4>Email</h4>
+								<a href="#">zunaidk17@gmail.com</a><br>
+								<a href="#">sanjana@gmail.com</a>
+							</div>
+						</div>
+						<div class="media cont-line">
+							<div class="media-left icon-b">
+								<i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+							</div>
+							<div class="media-body dit-right">
+								<h4>Phone Number</h4>
+								<a href="#">7355732076</a><br>
+								<a href="#">8726340660</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+	<!-- End Contact -->
+
+
+
+
+	  
+    <!-- ======= Contact Section ======= -->
+	<div  id="contact"></div><br>
+	<section class="contact">
+		<div class="container" data-aos="fade-up">
+  
+		  <div class="section-title">
+			<h2>Contact</h2>
+			<p>For any Queries and doubts contact us </p>
+		  </div>
+  
+		  <div class="row">
+  
+			<div class="col-lg-5 d-flex align-items-stretch">
+			  <div class="info">
+				<div class="address">
+				  <i class="fa fa-location-arrow"></i>
+				  <h4>Location:</h4>
+				  <p>Gna University, punjab, 144401</p>
+				</div>
+  
+				<div class="email">
+				  <i class="fa fa-envelope"></i>
+				  <h4>Email:</h4>
+				  <p>info@example.com</p>
+				</div>
+  
+				<div class="phone">
+				  <i class="fa fa-phone"></i>
+				  <h4>Call:</h4>
+				  <p>+1 5589 55488 55s</p>
+				</div>
+  
+				<iframe src="https://www.google.com/maps/embed/v1/view
+				?key=AIzaSyCY05l-8JVk35xbh22o_puqmIB7_MgQjZE
+				&center=-33.8569,151.2152
+				&zoom=18
+				&maptype=satellite"  frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+			  </div>
+  
+			</div>
+  
+			<div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+			  <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+				<div class="form-row">
+				  <div class="form-group col-md-6">
+					<label for="name">Your Name</label>
+					<input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+					<div class="validate"></div>
+				  </div>
+				  <div class="form-group col-md-6">
+					<label for="name">Your Email</label>
+					<input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" />
+					<div class="validate"></div>
+				  </div>
+				</div>
+				<div class="form-group">
+				  <label for="name">Subject</label>
+				  <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+				  <div class="validate"></div>
+				</div>
+				<div class="form-group">
+				  <label for="name">Message</label>
+				  <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
+				  <div class="validate"></div>
+				</div>
+				<div class="mb-3">
+				  <div class="loading">Loading</div>
+				  <div class="error-message"></div>
+				  <div class="sent-message">Your message has been sent. Thank you!</div>
+				</div>
+				<div class="text-center"><button type="submit">Send Message</button></div>
+			  </form>
+			</div>
+  
+		  </div>
+  
+		</div>
+	  </section><!-- End Contact Section -->
+
+
+	  
+	<!-- ======= Frequently Asked Questions Section ======= -->
+    <section id="faq" style="background-color: white;" class="faq section-bg">
+		<div class="container" data-aos="fade-up">
+  
+		  <div class="section-title">
+			<h2>Frequently Asked Questions</h2>
+			<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+		  </div>
+  
+		  <div class="faq-list">
+			<ul>
+			  <li data-aos="fade-up" data-aos-delay="100">
+				<i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" class="collapse" href="#faq-list-1">Non consectetur a erat nam at lectus urna duis? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+				<div id="faq-list-1" class="collapse show" data-parent=".faq-list">
+				  <p>
+					Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+				  </p>
+				</div>
+			  </li>
+  
+			  <li data-aos="fade-up" data-aos-delay="200">
+				<i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-2" class="collapsed">Feugiat scelerisque varius morbi enim nunc? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+				<div id="faq-list-2" class="collapse" data-parent=".faq-list">
+				  <p>
+					Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+				  </p>
+				</div>
+			  </li>
+  
+			  <li data-aos="fade-up" data-aos-delay="300">
+				<i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-3" class="collapsed">Dolor sit amet consectetur adipiscing elit? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+				<div id="faq-list-3" class="collapse" data-parent=".faq-list">
+				  <p>
+					Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+				  </p>
+				</div>
+			  </li>
+  
+			  <li data-aos="fade-up" data-aos-delay="400">
+				<i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-4" class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+				<div id="faq-list-4" class="collapse" data-parent=".faq-list">
+				  <p>
+					Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in.
+				  </p>
+				</div>
+			  </li>
+  
+			  <li data-aos="fade-up" data-aos-delay="500">
+				<i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-5" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+				<div id="faq-list-5" class="collapse" data-parent=".faq-list">
+				  <p>
+					Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque.
+				  </p>
+				</div>
+			  </li>
+  
+			</ul>
+		  </div>
+  
+		</div>
+	  </section><!-- End Frequently Asked Questions Section -->
+  
+  
+	</main><!-- End #main -->
+  
+	<!-- ======= Footer ======= -->
+	<footer id="footer">
+  
+	  <div class="footer-newsletter">
+		<div class="container">
+		  <div class="row justify-content-center">
+			<div class="col-lg-6">
+			  <h4>Join Our Newsletter</h4>
+			  <p>Subscribe to get latest updates and health related advices via message </p>
+			  <form action="" method="post">
+				<input type="email" name="email"><input onclick="alert('Subscribe section is under construction');" type="submit" value="Subscribe">
+			  </form>
+			</div>
+		  </div>
+		</div>
+	  </div>
+  
+	  <div class="footer-top">
+		<div class="container">
+		  <div class="row">
+  
+			<div class="col-lg-3 col-md-6 footer-contact">
+			  <h3>Zunaid</h3>
+			  <p>
+				Gna University <br>
+				punjab, 144401<br>
+				India <br><br>
+				<strong>Phone:</strong> +91-7355732076<br>
+				<strong>Email:</strong> info@example.com<br>
+			  </p>
+			</div>
+  
+			<div class="col-lg-3 col-md-6 footer-links">
+			  <h4>Useful Links</h4>
+			  <ul>
+				<li><i class="bx bx-chevron-right"></i> <a href="#home">Home</a></li>
+				<li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
+				<li><i class="bx bx-chevron-right"></i> <a href="#services">Services</a></li>
+				<li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+				<li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+			  </ul>
+			</div>
+  
+			<div class="col-lg-3 col-md-6 footer-links">
+			  <h4>Our Services</h4>
+			  <ul>
+				<li><i class="bx bx-chevron-right"></i> <a href="#">Web design</a></li>
+				<li><i class="bx bx-chevron-right"></i> <a href="#">Heart Disease Prediction</a></li>
+				<li><i class="bx bx-chevron-right"></i> <a href="#">Disease Diagnosis</a></li>
+				<li><i class="bx bx-chevron-right"></i> <a href="#">Appointment</a></li>
+				<li><i class="bx bx-chevron-right"></i> <a href="#">others</a></li>
+			  </ul>
+			</div>
+  
+			<div class="col-lg-3 col-md-6 footer-links">
+			  <h4>Our Social Networks</h4>
+			  <p>Visit our social sites for more information and updates regarding health related problems</p>
+			  <div class="social-links mt-3">
+				<a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+				<a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+				<a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+				<a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+				<a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+			  </div>
+			</div>
+  
+		  </div>
+		</div>
+	  </div>
+  
+	  <div class="container footer-bottom clearfix">
+		<div class="copyright">
+		  &copy; Copyright <strong><span>Mohd zunaid</span></strong>. All Rights Reserved
+		</div>
+		<div class="credits">
+			<div class="col-lg-12">
+				<p class="footer-company-name">All Rights Reserved. &copy; 2020 <a href="#">Health Lab</a> Design By : Mohd Zunaid & Sanjana</a></p>
+			</div>
+		</div>
+	  </div>
+	</footer><!-- End Footer -->
+  
+	<a href="#" id="scroll-to-top" class="new-btn-d br-2"><i class="fa fa-angle-up"></i></a>
+
+
+
+
+
+
+
+  {% endif %}
+
+
+</body>
+
+</html>
